@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="GDLauncher.App.Features.Home.HomePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Padding="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Tiêu đề -->
+        <StackPanel Grid.Row="0" Spacing="4" Margin="0,0,0,24">
+            <TextBlock
+                Text="GD Launcher"
+                FontSize="32"
+                FontWeight="SemiBold" />
+            <TextBlock
+                Text="Trình khởi chạy Geometry Dash"
+                Opacity="0.6" />
+        </StackPanel>
+
+        <!-- Khu vực trạng thái + nút Play -->
+        <Border
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            CornerRadius="8"
+            Padding="24"
+            Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+            BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+            BorderThickness="1">
+
+            <StackPanel Spacing="16">
+                <StackPanel Spacing="4">
+                    <TextBlock Text="Trạng thái Geometry Dash" FontWeight="SemiBold" />
+                    <TextBlock Text="{x:Bind ViewModel.StatusText, Mode=OneWay}" Opacity="0.7" />
+                </StackPanel>
+
+                <Button
+                    Content="Play"
+                    Style="{StaticResource AccentButtonStyle}"
+                    Width="160"
+                    Command="{x:Bind ViewModel.PlayCommand}" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
